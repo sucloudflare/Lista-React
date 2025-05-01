@@ -1,17 +1,22 @@
-// src/components/ShoppingList.js
-import React, { useState } from 'react';
+// ShoppingList.js
+import React, { useState } from 'react'; // Importa o React e o hook useState
 
 function ShoppingList() {
+  // Estado da lista de itens (array de strings)
   const [items, setItems] = useState([]);
+
+  // Estado do input (valor digitado)
   const [novoItem, setNovoItem] = useState('');
 
+  // Função chamada ao adicionar item
   const adicionarItem = () => {
     if (novoItem.trim() !== '') {
-      setItems([...items, novoItem]);
-      setNovoItem('');
+      setItems([...items, novoItem]); // Adiciona novo item no array
+      setNovoItem(''); // Limpa o input
     }
   };
 
+  // Função para remover item por índice
   const removerItem = (index) => {
     const novaLista = items.filter((_, i) => i !== index);
     setItems(novaLista);
